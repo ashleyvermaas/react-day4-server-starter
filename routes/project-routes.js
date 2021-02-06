@@ -18,6 +18,7 @@ router.get('/projects', (req, res, next) => {
     })
 })
 
+
 // Create new project
 router.post('/projects', (req, res, next) => {
   Project.create({
@@ -33,7 +34,8 @@ router.post('/projects', (req, res, next) => {
     });
 })
 
-// View a specific project
+
+// Retrieve details of a specific project
 router.get('/projects/:projectId', (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.projectId)) {
     res.status(400).json({
@@ -51,6 +53,7 @@ router.get('/projects/:projectId', (req, res, next) => {
       res.status(500).json(error);
     })
 })
+
 
 // Update a project
 router.put('/projects/:projectId', (req, res, next) => {
